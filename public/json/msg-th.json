@@ -1,0 +1,23 @@
+{
+  "base": {
+    "checkversion": "dHN0b2Nrc2Fw",
+    "key": "ZEhOMGIyTnJjMkZ3"
+  },
+  "page": {
+    "index": "หน้าแรก | SCRC",
+    "loginus": "User | SCRC",
+    "loginam": "Admin | SCRC",
+
+    "qcv": "กรอกข้อมูล | EduTrust",
+    "notlog": "ไม่พบข้อมูล | 404 Error",
+    "welcome": "ยินดีตอนรับ | EduTrust",
+    "qcvoff": "ตรวจสอบข้อมูล | EduTrust",
+    "check_doc": "อ้างอิง | EduTrust",
+    "off_system": "กำลังอยู่ระหว่างการพัฒนา",
+    "admin": "EduTrust Admin",
+    "check_status": "ตรวจสอบเอกสาร | EduTrust Admin",
+    "addsign": "ลายเซ็น | EduTrust Admin",
+    "adduser": "ผู้สอบ | EduTrust Admin",
+    "addmin": "ผู้ดูแลระบบ | EduTrust Admin"
+  }
+}

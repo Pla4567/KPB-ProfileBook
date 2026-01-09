@@ -19,3 +19,9 @@
 /fuel/app/logs/*/*/*
 /fuel/app/cache/*/*
 /fuel/app/config/crypt.php
+
+/.temp_cache/
+/dist/
+/config/
+/node_modules/
+/prod/
