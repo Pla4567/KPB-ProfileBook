@@ -1,6 +1,6 @@
 @import "tailwindcss";
 /* @plugin '@tailwindcss/forms'; */
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 html, body {
   margin: 0;
@@ -9,17 +9,41 @@ html, body {
   height: 100%;
 }
 
+/* เมื่ออยู่ใน dark mode (ตาม system preference) */
+html.dark, body.dark {
+  background-color: #111827;
+}
+
+html.light, body.light {
+  background-color: #ffffff;
+}
+
+
 .avatar {
     width: 35px;
     height: 35px;
-    background: #3b82f6; /* สีพื้นหลัง */
-    color: white;
+    background: white; /* สีพื้นหลัง */
+    color: #f87171;
+    /* color: #3b82f6; */
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     font-size: 20px;
+    cursor: pointer;
+}
+
+.btn-mode {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 /* กำหนด Custom Component สำหรับปุ่ม */
