@@ -37,11 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const val = e.target.value.trim();
 
     if (val === "") {
-      errorElementNumber.textContent = "กรุณากรอกรหัสเข้าระบบ!";
+      errorElementNumber.textContent = "กรุณากรอกรหัสผ่าน!";
       checknumber = false;
-    } else if (!/^\d+$/.test(val)) {
+    } else if (val.length < 6) {
       errorElementNumber.textContent =
-        "รหัสเข้าระบบต้องเป็นตัวเลข";
+        "กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัวอักษร";
       checknumber = false;
     } else {
       errorElementNumber.textContent = "";

@@ -30,22 +30,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!empty($idcard) && !empty($numlogin) && !empty($result_check['status'])) {
             
                 if ($result_check['status'] === 'user') {
+                    $_SESSION['success_login'] = true;
                     header("Location: ../../indexus.php");
                     exit();
                 } else if ($result_check['status'] === 'admin') {
+                    $_SESSION['success_login'] = true;
                     header("Location: ../../indexam.php");
                     exit();
                 } else if ($result_check['status'] === 'superadmin') {
+                    $_SESSION['success_login'] = true;
                     header("Location: ../../indexam.php");
                     exit();
                 } else if ($result_check['status'] === 'superuser') {
+                    $_SESSION['success_login'] = true;
                     header("Location: ../../indexam.php");
                     exit();
                 }
             }
 
         } else {
-            echo "ไม่พบข้อมูล กรุณาลองใหม่";
+            //echo "ไม่พบข้อมูล กรุณาลองใหม่";
+            $_SESSION['erorr_login'] = true;
+            header("Location: ../../login.php");
+            exit();
         }
     exit();
 }

@@ -38,6 +38,10 @@ module.exports = {
       dependOn: "main",
       import: path.resolve(__dirname, "./src/js/loginus.js"),
     },
+    indexus: {
+      dependOn: "main",
+      import: path.resolve(__dirname, "./src/js/indexus.js"),
+    },
   },
 
   output: {
@@ -72,7 +76,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: "./src/images", to: "images" },
-        { from: "./src/php/server", to: "includes/server" }
+        { from: "./src/php/server", to: "includes/server" },
         // { from: "./src/icons", to: "icons" },
 
         // { from: "./src/php/header", to: "header" },
@@ -132,11 +136,11 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       ...pageWebpackOptionConfig,
-      filename: "indexus.php", // ชื่อไฟล์ที่สร้างใน dist/
+      filename: "logout.php", // ชื่อไฟล์ที่สร้างใน dist/
       templateParameters: {
-        pageTitle: local.page.loginus,
+        pageTitle: local.page.logout,
       },
-      template: path.join(__dirname, "./src/php/user/indexus.php"), // ไฟล์ header.php
+      template: path.join(__dirname, "./src/php/logout.php"), // ไฟล์ header.php
       inject: true, // ป้องกันการเพิ่ม <script> อัตโนมัติ
       chunks: ["main"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
       // chunks: ["index", "system"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
@@ -144,15 +148,39 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       ...pageWebpackOptionConfig,
+      filename: "indexus.php", // ชื่อไฟล์ที่สร้างใน dist/
+      templateParameters: {
+        pageTitle: local.page.indexus,
+      },
+      template: path.join(__dirname, "./src/php/user/indexus.php"), // ไฟล์ header.php
+      inject: true, // ป้องกันการเพิ่ม <script> อัตโนมัติ
+      chunks: ["main", "indexus"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
+      // chunks: ["index", "system"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
+    }),
+
+    new HtmlWebpackPlugin({
+      ...pageWebpackOptionConfig,
       filename: "indexam.php", // ชื่อไฟล์ที่สร้างใน dist/
       templateParameters: {
-        pageTitle: local.page.loginam,
+        pageTitle: local.page.indexam,
       },
       template: path.join(__dirname, "./src/php/admin/indexam.php"), // ไฟล์ header.php
       inject: true, // ป้องกันการเพิ่ม <script> อัตโนมัติ
       chunks: ["main"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
       // chunks: ["index", "system"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
     }),
+    
+    // new HtmlWebpackPlugin({
+    //   ...pageWebpackOptionConfig,
+    //   filename: "filebook.php", // ชื่อไฟล์ที่สร้างใน dist/
+    //   templateParameters: {
+    //     pageTitle: local.page.filebook,
+    //   },
+    //   template: path.join(__dirname, "./src/php/filebook.php"), // ไฟล์ header.php
+    //   inject: true, // ป้องกันการเพิ่ม <script> อัตโนมัติ
+    //   chunks: ["main"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
+    //   // chunks: ["index", "system"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
+    // }),
   ],
   module: {
     rules: [

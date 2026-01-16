@@ -5,8 +5,11 @@
   },
   "page": {
     "index": "หน้าแรก | SCRC",
-    "loginus": "User | SCRC",
-    "loginam": "Admin | SCRC",
+    "indexus": "User | SCRC",
+    "indexam": "Admin | SCRC",
+    "loginus": "เข้าระบบ | SCRC",
+    "logout" : "ออกระบบ | SCRC",
+    "filebook" : "หน้าเอกสาร | SCRC",
 
     "qcv": "กรอกข้อมูล | EduTrust",
     "notlog": "ไม่พบข้อมูล | 404 Error",

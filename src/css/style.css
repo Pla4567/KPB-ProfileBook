@@ -69,6 +69,10 @@ html.light, body.light {
     @apply bg-gray-500 hover:bg-gray-700 text-white;
   }
 
+  .btn-sucess {
+    @apply bg-green-500 hover:bg-green-700 text-white;
+  }
+
   .btn-large {
     @apply py-3 px-6 text-lg;
   }
@@ -81,8 +85,6 @@ html.light, body.light {
     @apply block w-full rounded-4xl px-4 py-4 text-base text-gray-900 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6 bg-gray-100;
   }
 
-
-  //ส่วนหัว
   .nav-item {
     @apply flex items-center gap-3 px-3 py-2 rounded-md
            text-neutral-700 hover:bg-neutral-100
