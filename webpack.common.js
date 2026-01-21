@@ -169,7 +169,31 @@ module.exports = {
       chunks: ["main"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
       // chunks: ["index", "system"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
     }),
-    
+
+    new HtmlWebpackPlugin({
+      ...pageWebpackOptionConfig,
+      filename: "header.php", // ชื่อไฟล์ที่สร้างใน dist/
+      templateParameters: {
+        pageTitle: local.page.index,
+      },
+      template: path.join(__dirname, "./src/php/admin/header.php"), // ไฟล์ header.php
+      inject: true, // ป้องกันการเพิ่ม <script> อัตโนมัติ
+      chunks: ["main"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
+      // chunks: ["index", "system"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
+    }),
+
+    new HtmlWebpackPlugin({
+      ...pageWebpackOptionConfig,
+      filename: "profilebook.php", // ชื่อไฟล์ที่สร้างใน dist/
+      templateParameters: {
+        pageTitle: local.page.profile,
+      },
+      template: path.join(__dirname, "./src/php/admin/profilebook.php"), // ไฟล์ header.php
+      inject: true, // ป้องกันการเพิ่ม <script> อัตโนมัติ
+      chunks: ["main"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
+      // chunks: ["index", "system"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
+    }),
+
     // new HtmlWebpackPlugin({
     //   ...pageWebpackOptionConfig,
     //   filename: "filebook.php", // ชื่อไฟล์ที่สร้างใน dist/
