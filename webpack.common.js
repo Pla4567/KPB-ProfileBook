@@ -42,6 +42,10 @@ module.exports = {
       dependOn: "main",
       import: path.resolve(__dirname, "./src/js/indexus.js"),
     },
+    indexam: {
+      dependOn: "main",
+      import: path.resolve(__dirname, "./src/js/indexam.js"),
+    },
   },
 
   output: {
@@ -166,7 +170,7 @@ module.exports = {
       },
       template: path.join(__dirname, "./src/php/admin/indexam.php"), // ไฟล์ header.php
       inject: true, // ป้องกันการเพิ่ม <script> อัตโนมัติ
-      chunks: ["main"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
+      chunks: ["main", "indexam"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
       // chunks: ["index", "system"], // ใส่เฉพาะบันเดิลที่ต้องการในหน้า index.html
     }),
 

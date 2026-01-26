@@ -2,8 +2,6 @@
     <%= pageTitle %>
 </title>
 <?php include 'header.php';
-// $idlogin = 5;
-// $row = getRewardFromAPI($idlogin)
 ?>
 
 
@@ -14,7 +12,7 @@
 
             <div class="w-full text-center bg-neutral-primary-soft rounded-full shadow-xs bg-gray-200 dark:bg-gray-700">
                 <p class="mb-6 mt-6 text-base text-body sm:text-lg align-center text-red-400">
-                    ตารางแสดงข้อมูลสมุดประวัติที่สามารถสแกนเก็บไฟล์เอกสารได้</p>
+                    ตารางแสดงข้อมูลสมุดประวัติที่สแกนเก็บไฟล์เอกสาร</p>
             </div>
 
         </div>
@@ -92,16 +90,17 @@
                     <?php
                     // ดึงข้อมูลจากตาราง
                     
-                    // $sql = "SELECT * FROM loginfrom ORDER BY idlogin ASC";
-                    // $result = $conn->query($sql);
+                    $sql = "SELECT * FROM loginfrom ORDER BY idlogin ASC";
+                    $result = $conn->query($sql);
                     
                     // ดึงข้อมูลจาก api
-                    $apiUrl = "http://localhost/kpb-profilebook_api/get_userpdx.php";
-                    $json = file_get_contents($apiUrl);
-                    $data = json_decode($json, true);
+                    // $apiUrl = "http://localhost/kpb-profilebook_api/get_userpdx.php";
+                    // $json = file_get_contents($apiUrl);
+                    // $data = json_decode($json, true);
 
                     // ตรวจว่ามีข้อมูลไหม
-                    if (!empty($data) && is_array($data)) {
+                    if ($result && $result->num_rows > 0) {
+                    // if (!empty($data) && is_array($data)) {
                         ?>
                         <table class="w-full text-sm rtl:text-right text-body dark:text-white text-center">
                             <thead class="bg-neutral-secondary-soft border-b border-default">
@@ -128,8 +127,8 @@
 
                                 <?php
                                 $count = 1; // ตัวนับลำดับ
-                                // while ($row = $result->fetch_assoc()) { 
-                                foreach ($data as $row) {
+                                while ($row = $result->fetch_assoc()) { 
+                                // foreach ($data as $row) {
 
                                     ?>
                                     <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default ">
@@ -508,112 +507,8 @@
                     })
                     .catch(err => console.error(err));
             }
-            // document.getElementById('cancelBtn').addEventListener('click', function () {
-            //     document.getElementById('bookhistoryForm').reset();
-            //     document.getElementById('numloginError').textContent = '';
-            // });
-            // document.getElementById('cancelCloseBtn').addEventListener('click', function () {
-            //     document.getElementById('bookhistoryForm').reset();
-            //     document.getElementById('numloginError').textContent = '';
-            // });
         </script>
 
-
-
-
-        <div class="flex items-center justify-center h-48 rounded-base bg-neutral-secondary-soft mb-4">
-            <p class="text-fg-disabled">
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5 12h14m-7 7V5" />
-                </svg>
-            </p>
-        </div>
-        <div class="grid grid-cols-2 gap-4 mb-4">
-            <div class="flex items-center justify-center h-24 rounded-base bg-neutral-secondary-soft">
-                <p class="text-fg-disabled">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
-                    </svg>
-                </p>
-            </div>
-            <div class="flex items-center justify-center h-24 rounded-base bg-neutral-secondary-soft">
-                <p class="text-fg-disabled">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
-                    </svg>
-                </p>
-            </div>
-            <div class="flex items-center justify-center h-24 rounded-base bg-neutral-secondary-soft">
-                <p class="text-fg-disabled">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
-                    </svg>
-                </p>
-            </div>
-            <div class="flex items-center justify-center h-24 rounded-base bg-neutral-secondary-soft">
-                <p class="text-fg-disabled">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
-                    </svg>
-                </p>
-            </div>
-        </div>
-        <div class="flex items-center justify-center h-48 rounded-base bg-neutral-secondary-soft mb-4">
-            <p class="text-fg-disabled">
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M5 12h14m-7 7V5" />
-                </svg>
-            </p>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-            <div class="flex items-center justify-center h-24 rounded-base bg-neutral-secondary-soft">
-                <p class="text-fg-disabled">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
-                    </svg>
-                </p>
-            </div>
-            <div class="flex items-center justify-center h-24 rounded-base bg-neutral-secondary-soft">
-                <p class="text-fg-disabled">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
-                    </svg>
-                </p>
-            </div>
-            <div class="flex items-center justify-center h-24 rounded-base bg-neutral-secondary-soft">
-                <p class="text-fg-disabled">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
-                    </svg>
-                </p>
-            </div>
-            <div class="flex items-center justify-center h-24 rounded-base bg-neutral-secondary-soft">
-                <p class="text-fg-disabled">
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
-                    </svg>
-                </p>
-            </div>
-        </div>
+        
     </div>
 </div>
